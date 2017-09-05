@@ -1,0 +1,73 @@
+local item = {
+	name(名称 必填) = ""
+	category(类型 必填) = {equipment装备,use使用,plot剧情,money金钱,treasure宝箱},  -- 物品类型
+	subcategory(子类型 可选) = {
+	    equipment = {hat头戴, cloak披挂, clothes身穿, weapon手持, accessory配饰, shoes脚穿},
+		use = {drug药品, food食物, throw投掷},
+	},   -- 子类型
+	price价格 = 100,
+	scene(场景 可选) = {normal,battle,plot,none(宝箱专属)},   -- 场景使用限制
+	apply(适用 可选) = {
+		name名成(可选) = "柳清风,慕容梅", 
+		sex性别(可选) = "男,女",
+		element五灵(可选) = "水,火,雷,风,土",
+	},   -- 人物使用限制
+	effect(必填) = {level修行,exp经历,hp体力,mp真气,luck吉运,sharp身法,attack武术,defensive防御,毒,封,乱,眠}
+	items物品(宝箱专属) = {
+		金钱 = 300,
+		布头巾 = 1,
+		木藤甲 = 1,
+	},
+	image形象(必填) = {
+		framecache帧池(必填) = "",
+		frameset帧集(必填) = "1-1.png,1-2.png",
+	}
+	trigger_field(可选) = 1,
+	description描述(可选) = "",
+}
+
+local Entity = {
+	name名称(必填) = "",
+	category类型(必填) = {NPC(剧情发展),monster怪物(升级打怪),enemy敌人(剧情发展),party伙伴,player主角},
+	level修行 = 1,
+	exp经历 = 0, -- 主角表示自己的经验,怪物/敌人表示胜利后可获取的经验
+	hp体力 = 100,
+	mp真气 = 100,
+	luck吉运 = 100,
+	sharp身法 = 100,
+	attack武术 = 100,
+	defensive防御 = 100,
+	items物品 = { -- 主角表示拥有的物品,怪物/敌人表示胜利后可获得的物品
+		金钱 = 300,
+		布头巾 = 1,
+		木藤甲 = 1,
+	}
+	steal = {
+		两面针 = 1,
+	}
+	magic_time真气数 = 0,
+	attack_effect效果 = {
+		毒 = 3,
+		封 = 3,
+		乱 = 3,
+		眠 = 3,
+	}
+	immune免疫 = "毒,封,乱,眠",
+	image形象(必填) = {
+		framecache帧池(必填) = "player",
+		北 = "2-7.png,2-8.png,2-9.png,2-7.png",
+		南 = "2-1.png,2-2.png,2-3.png,2-1.png",
+		西 = "2-4.png,2-5.png,2-6.png,2-4.png,",
+		东 = "2-10.png,2-11.png,2-12.png,2-10.png",
+	}
+	trigger_field触发域(可选) = 1,
+	trace_field追踪域(可选) = 0,
+	speed速度 = 0.5,
+	party伙伴 = {
+		小蜜蜂 = "1~2",
+		风草堆 = "1~3"
+		最大数 = "3"
+	}
+	battle_map战斗地图 = "B001"
+	description描述 = "额...,就只是个描述吗?",
+}
